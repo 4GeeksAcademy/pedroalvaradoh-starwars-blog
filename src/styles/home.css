@@ -1,0 +1,161 @@
+body {
+  color: #FFE81F;
+
+  background-image: url(https://wallpaperset.com/w/full/6/f/5/51827.jpg), url(https://i.imgur.com/XYmUEIR.png);
+  background-position: top, bottom;
+  background-repeat: no-repeat, repeat;
+  background-position: center, center;
+  background-size: cover, contain;
+
+}
+
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+  /* Adjust the width as needed */
+  background-color: transparent;
+  /* Set to container's background color */
+}
+
+body::-webkit-scrollbar-thumb {
+
+  background-color: transparent;
+  /* Set to container's background color */
+}
+
+
+
+a {
+  text-decoration: none;
+  color: #FFE81F;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #FFE81F;
+}
+
+.logo {
+  max-width: 200px;
+  /* margin-top: -50px; */
+}
+
+/* https://wallpaperset.com/w/full/6/f/5/51827.jpg
+https://wallpaperset.com/w/full/b/8/8/51793.jpg
+ */
+
+h1 {
+  /* font-family: 'Star Wars', sans-serif; */
+  font-family: 'Death Star', sans-serif;
+
+
+}
+
+.wrapper {
+  width: 1300px;
+  margin: auto;
+
+}
+
+
+
+.card-body-custom {
+  max-width: 200px;
+  background-color: transparent;
+  transition: ease-in-out 0.3s;
+
+}
+
+.card-body-custom:hover {
+  max-width: 260px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.332);
+  box-shadow: 0px 0px 20px 1px rgba(254, 254, 239, 0.66);
+  transition: ease-in-out 0.2s;
+
+
+}
+
+.card-img {
+  max-height: 300px;
+  object-position: 0 0%;
+  object-fit: cover;
+}
+
+.card-name-text {
+  font-family: 'Death Star', sans-serif;
+  -webkit-text-stroke: 1px yellow;
+  color: transparent;
+  letter-spacing: 1px;
+}
+
+.card-container {
+
+  overflow-x: auto;
+
+}
+
+.card-wrapper {
+  display: flex;
+  padding-top: 15px;
+}
+
+.card {
+  flex: 0 0 auto;
+  margin: 10px;
+}
+
+.card-buttons {
+  margin-bottom: 0;
+  color: white;
+}
+
+.btn-like {
+  color: white;
+  font-size: 25px;
+}
+
+.description-title {
+  color: #32aed4
+}
+
+/* DETAILED VIEW SECTION */
+
+.detailedView-title-name {
+  font-size: 50px;
+  font-family: 'Death Star', sans-serif;}
+
+
+/* SCROLLBAR */
+/* Estilo para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Estilo para la pista de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background-color: black;
+  border: none;
+
+}
+
+/* Estilo para el pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 195, 255, 0.956);
+  /* border: 1px solid rgba(242, 223, 9, 0.29); */
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px 5px black;
+
+}
+
+
+
+
+
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+@import url('https://fonts.cdnfonts.com/css/heavy-metal-blight');
+/*   font-family: 'Star Wars', sans-serif;
+    font-family: 'Heavy Metal Blight', sans-serif; */
+@import url('https://fonts.cdnfonts.com/css/death-star');
+/* font-family: 'Death Star', sans-serif;
+ */
