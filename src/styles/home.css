@@ -67,7 +67,7 @@ h1 {
 }
 
 .card-body-custom:hover {
-  max-width: 260px;
+  max-width: 250px;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.332);
   box-shadow: 0px 0px 20px 1px rgba(254, 254, 239, 0.66);
@@ -106,13 +106,21 @@ h1 {
 }
 
 .card-buttons {
-  margin-bottom: 0;
+  
+  margin-bottom: 0px;
   color: white;
 }
 
 .btn-like {
   color: white;
   font-size: 25px;
+  height: fit-content;
+}
+
+.info-button {
+  background-color: #00c3ffd6;
+  border: none;
+  height: fit-content;
 }
 
 .description-title {
@@ -125,6 +133,24 @@ h1 {
   font-size: 50px;
   font-family: 'Death Star', sans-serif;}
 
+  .detailed-image {
+    max-width: 350px;
+    
+  }
+
+  .info-section {
+    font-size: 20px;
+  }
+
+  .text-right {
+    font-size: 25px;
+    border-left:#ffe91f5b solid 1px;
+   
+  }
+
+  .opening-crawl-container {
+    border-left:#ffe91f5b solid 1px;
+  }
 
 /* SCROLLBAR */
 /* Estilo para la barra de desplazamiento */

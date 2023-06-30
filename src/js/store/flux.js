@@ -15,6 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadCharactersData: async () => {
+				const { actions } = getActions();
+
 				try {
 					const response = await fetch("https://www.swapi.tech/api/people/");
 					const data = await response.json();
@@ -29,9 +31,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const responses = await Promise.all(promises);
 						const data = await Promise.all(responses.map((response) => response.json()));
 
-						const newCharactersDetail = [...store.charactersDetail, ...data.map((item) => ({...item.result, type: "character"}))];
+						const newCharactersDetail = [...store.charactersDetail, ...data.map((item) => ({ ...item.result, type: "character" }))];
 
 						setStore({ charactersDetail: newCharactersDetail });
+						actions.saveDataToLocalStorage("charactersDetail", newCharactersDetail);
 						console.log([store.charactersDetail, "jajajajajaja"]);
 					} catch (error) {
 						console.log(error);
@@ -57,9 +60,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const responses = await Promise.all(promises);
 						const data = await Promise.all(responses.map((response) => response.json()));
 
-						const newPlanetsDetail = [...store.planetsDetail, ...data.map((item) => ({...item.result, type: "planet"}))];
+						const newPlanetsDetail = [...store.planetsDetail, ...data.map((item) => ({ ...item.result, type: "planet" }))];
 
 						setStore({ planetsDetail: newPlanetsDetail });
+						// saveDataToLocalStorage("planetsDetail", newPlanetsDetail);
 						console.log(store.planetsDetail);
 					} catch (error) {
 						console.log(error);
@@ -85,9 +89,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const responses = await Promise.all(promises);
 						const data = await Promise.all(responses.map((response) => response.json()));
 
-						const newFilmsDetail = [...store.filmsDetail, ...data.map((item) => ({...item.result, type: "film"}))];
+						const newFilmsDetail = [...store.filmsDetail, ...data.map((item) => ({ ...item.result, type: "film" }))];
 
 						setStore({ filmsDetail: newFilmsDetail });
+						// saveDataToLocalStorage("filmsDetail", newFilmsDetail);
 						console.log(store.filmsDetail);
 					} catch (error) {
 						console.log(error);
@@ -98,6 +103,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				};
 			},
+			saveDataToLocalStorage: (key, data) => {
+				localStorage.setItem(key, JSON.stringify(data));
+			},
+
+			updateFavorites: (newFavorites)=> {
+				const store = getStore();
+				
+				setStore({favorites: newFavorites})
+				console.log([store.favorites, "this is the favorites state"])
+			}
+
 		}
 	};
 };

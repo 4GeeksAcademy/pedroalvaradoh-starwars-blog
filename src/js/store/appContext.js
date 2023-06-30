@@ -28,14 +28,15 @@ const injectContext = PassedComponent => {
 					await Promise.all([
 						state.actions.loadCharactersData(),
 						state.actions.loadPlanetsData(),
-						state.actions.loadFilmsData()
+						state.actions.loadFilmsData(),
+						
 					]);
-				
+
 				} catch (error) {
 					console.log(error);
 				}
 			};
-		
+
 			fetchData();
 		}, []);
 
