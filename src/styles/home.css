@@ -111,10 +111,24 @@ h1 {
   color: white;
 }
 
-.btn-like {
+
+.btn-like:active,
+.btn-like:focus,
+.btn-like,
+.btn-like:hover {
   color: white;
   font-size: 25px;
   height: fit-content;
+  box-shadow: none;
+}
+
+.btn-liked:active,
+.btn-liked:focus,
+.btn-liked {
+  color: rgb(181, 0, 0);
+  font-size: 25px;
+  height: fit-content;
+  box-shadow: none;
 }
 
 .info-button {

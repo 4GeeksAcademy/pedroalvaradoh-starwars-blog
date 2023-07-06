@@ -10,10 +10,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			filmsDetail: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 			loadCharactersData: async () => {
 				const { actions } = getActions();
 
@@ -21,12 +17,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://www.swapi.tech/api/people/");
 					const data = await response.json();
 					setStore({ characters: data.results })
-					console.log(data.results)
 
 					try {
 						const store = getStore();
 						const uidArray = store.characters.map((element) => element.uid)
-						console.log(uidArray);
 						const promises = uidArray.map((uid) => fetch(`https://www.swapi.tech/api/people/${uid}`))
 						const responses = await Promise.all(promises);
 						const data = await Promise.all(responses.map((response) => response.json()));
@@ -34,8 +28,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const newCharactersDetail = [...store.charactersDetail, ...data.map((item) => ({ ...item.result, type: "character" }))];
 
 						setStore({ charactersDetail: newCharactersDetail });
-						actions.saveDataToLocalStorage("charactersDetail", newCharactersDetail);
-						console.log([store.charactersDetail, "jajajajajaja"]);
 					} catch (error) {
 						console.log(error);
 					}
@@ -50,12 +42,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://www.swapi.tech/api/planets/");
 					const data = await response.json();
 					setStore({ planets: data.results })
-					console.log(data.results)
 
 					try {
 						const store = getStore();
 						const uidArray = store.planets.map((element) => element.uid)
-						console.log(uidArray);
 						const promises = uidArray.map((uid) => fetch(`https://www.swapi.tech/api/planets/${uid}`))
 						const responses = await Promise.all(promises);
 						const data = await Promise.all(responses.map((response) => response.json()));
@@ -63,8 +53,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const newPlanetsDetail = [...store.planetsDetail, ...data.map((item) => ({ ...item.result, type: "planet" }))];
 
 						setStore({ planetsDetail: newPlanetsDetail });
-						// saveDataToLocalStorage("planetsDetail", newPlanetsDetail);
-						console.log(store.planetsDetail);
 					} catch (error) {
 						console.log(error);
 					}
@@ -79,12 +67,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://www.swapi.tech/api/films/");
 					const data = await response.json();
 					setStore({ films: data.result })
-					console.log(data.result)
 
 					try {
 						const store = getStore();
 						const uidArray = store.films.map((element) => element.uid)
-						console.log(uidArray);
 						const promises = uidArray.map((uid) => fetch(`https://www.swapi.tech/api/films/${uid}`))
 						const responses = await Promise.all(promises);
 						const data = await Promise.all(responses.map((response) => response.json()));
@@ -92,8 +78,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const newFilmsDetail = [...store.filmsDetail, ...data.map((item) => ({ ...item.result, type: "film" }))];
 
 						setStore({ filmsDetail: newFilmsDetail });
-						// saveDataToLocalStorage("filmsDetail", newFilmsDetail);
-						console.log(store.filmsDetail);
 					} catch (error) {
 						console.log(error);
 					}
@@ -106,12 +90,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			saveDataToLocalStorage: (key, data) => {
 				localStorage.setItem(key, JSON.stringify(data));
 			},
-
-			updateFavorites: (newFavorites)=> {
+			loadDataFromLocalStorage: (key) => {
 				const store = getStore();
-				
-				setStore({favorites: newFavorites})
-				console.log([store.favorites, "this is the favorites state"])
+				const data = localStorage.getItem(key);
+				const parsedData = JSON.parse(data);
+			  
+				if (parsedData) {
+				  setStore({ favorites: parsedData });
+				}
+			  
+				return parsedData;
+			  },
+
+			updateFavorites: (newFavorites) => {
+				const store = getStore();
+				const updatedFavorites =  newFavorites;
+
+				getActions().saveDataToLocalStorage("favorites", newFavorites);
+				setStore({ favorites: updatedFavorites })
 			}
 
 		}

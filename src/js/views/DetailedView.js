@@ -62,34 +62,41 @@ const DetailedView = () => {
         return <>
             <h1 className="text-center">All you need to know about </h1>
             <p className="detailedView-title-name text-center">{params.name}</p>
-            <section className="info-section container text-center">
-                <p>
-                    Diameter: <span className="description-title">{element.properties.diameter}</span>
-                </p>
-                <p>
-                    Rotation Period: <span className="description-title">{element.properties.rotation_period}</span>
-                </p>
-                <p>
-                    Orbital Period: <span className="description-title">{element.properties.orbital_period}</span>
-                </p>
-                <p>
-                    Gravity: <span className="description-title">{element.properties.gravity}</span>
-                </p>
-                <p>
-                    Population: <span className="description-title">{element.properties.population}</span>
-                </p>
-                <p>
-                    Climate: <span className="description-title">{element.properties.climate}</span>
-                </p>
-                <p>
-                    Terrain: <span className="description-title">{element.properties.terrain}</span>
-                </p>
-                <p>
-                    Surface Water: <span className="description-title">{element.properties.surface_water}</span>
-                </p>
-                <p>
-                    Name: <span className="description-title">{element.properties.name}</span>
-                </p>
+            <section className="info-section container text-center mt-5">
+                <div className="row">
+                    <div className="detailed-image-container col-md-4">
+                        <img src={element.uid > 1 ? `${planetURL}${element.uid}.jpg` : `${tatooineURL}`} className="detailed-image" alt="..." />
+                    </div>
+                    <div className="col-md-4">
+                        <p>
+                            Diameter: <span className="description-title">{element.properties.diameter}</span>
+                        </p>
+                        <p>
+                            Rotation Period: <span className="description-title">{element.properties.rotation_period}</span>
+                        </p>
+                        <p>
+                            Orbital Period: <span className="description-title">{element.properties.orbital_period}</span>
+                        </p>
+                        <p>
+                            Gravity: <span className="description-title">{element.properties.gravity}</span>
+                        </p>
+                        <p>
+                            Population: <span className="description-title">{element.properties.population}</span>
+                        </p>
+                        <p>
+                            Climate: <span className="description-title">{element.properties.climate}</span>
+                        </p>
+                        <p>
+                            Terrain: <span className="description-title">{element.properties.terrain}</span>
+                        </p>
+                        <p>
+                            Surface Water: <span className="description-title">{element.properties.surface_water}</span>
+                        </p>
+                        <p>
+                            Name: <span className="description-title">{element.properties.name}</span>
+                        </p>
+                    </div>
+                </div>
             </section>
         </>
 
@@ -104,29 +111,34 @@ const DetailedView = () => {
             </section>
 
             <section className="info-section container text-center">
-                <p>
-                    Height: <span className="description-title">{element.properties.height}</span>
-                </p>
-                <p>
-                    Mass: <span className="description-title">{element.properties.mass}</span>
-                </p>
-                <p>
-                    Hair Color: <span className="description-title">{element.properties.hair_color}</span>
-                </p>
-                <p>
-                    Skin Color: <span className="description-title">{element.properties.skin_color}</span>
-                </p>
-                <p>
-                    Eye Color: <span className="description-title">{element.properties.eye_color}</span>
-                </p>
-                <p>
-                    Birth Year: <span className="description-title">{element.properties.birth_year}</span>
-                </p>
-                <p>
-                    Gender: <span className="description-title">{element.properties.gender}</span>
-                </p>
-
-
+                <div className="row">
+                    <div className="detailed-image-container col-md-4">
+                        <img src={`${imageURL}${element.uid}.jpg`} className="detailed-image" alt="..." />
+                    </div>
+                    <div className="col-md-4">
+                        <p>
+                            Height: <span className="description-title">{element.properties.height}</span>
+                        </p>
+                        <p>
+                            Mass: <span className="description-title">{element.properties.mass}</span>
+                        </p>
+                        <p>
+                            Hair Color: <span className="description-title">{element.properties.hair_color}</span>
+                        </p>
+                        <p>
+                            Skin Color: <span className="description-title">{element.properties.skin_color}</span>
+                        </p>
+                        <p>
+                            Eye Color: <span className="description-title">{element.properties.eye_color}</span>
+                        </p>
+                        <p>
+                            Birth Year: <span className="description-title">{element.properties.birth_year}</span>
+                        </p>
+                        <p>
+                            Gender: <span className="description-title">{element.properties.gender}</span>
+                        </p>
+                    </div>
+                </div>
             </section>
         </>
     };

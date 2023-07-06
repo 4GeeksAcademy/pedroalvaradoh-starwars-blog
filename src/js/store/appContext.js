@@ -23,20 +23,22 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			state.actions.loadDataFromLocalStorage("favorites");
+
 			const fetchData = async () => {
 				try {
 					await Promise.all([
+
 						state.actions.loadCharactersData(),
 						state.actions.loadPlanetsData(),
 						state.actions.loadFilmsData(),
-						
+
 					]);
 
 				} catch (error) {
 					console.log(error);
 				}
 			};
-
 			fetchData();
 		}, []);
 
